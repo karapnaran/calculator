@@ -81,7 +81,7 @@ const sine=(a) =>
 }
 const cosine=(a) =>
 {
-  let pi=3.1415926535;
+  let pi=3.14159265359;
   a%=360;
   let rad =a * pi/180;
   let cos=0.0;
