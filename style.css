@@ -1,0 +1,15 @@
+.button-group{
+  width: 500px;
+}
+
+.button-group button {
+  width: 100px;
+}
+
+.button-group .long-button{
+  width: 204px;
+}
+
+.text{
+  width: 408px;
+}

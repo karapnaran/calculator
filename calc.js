@@ -93,4 +93,7 @@ const integral=(func,a,b,precision)=>{
   }
   return sum;
 }
-console.log(cosine(60));
+const myBtn = document.getElementById('btn-1');
+    myBtn.addEventListener('click', event => {
+      console.log('1');
+  });
