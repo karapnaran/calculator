@@ -1,18 +1,18 @@
 const sumInt = (a,b) =>
 {
-  return a+b;
+  return Math.round(a+b);
 }
 const substractionInt = (a,b) =>
 {
-  return a-b;
+  return Math.round(a-b);
 }
 const divisionInt = (a,b) =>
 {
-  return a/b;
+  return Math.round(a/b);
 }
 const multiplicationInt =(a,b) =>
 {
-  return a*b;
+  return Math.round(a*b);
 }
 const power = (a,pow) =>
 {
@@ -20,7 +20,6 @@ const power = (a,pow) =>
   while(pow>0)
   {
     pow--
-  //  if(pow==0)return a;
     res*=a;
   }
   return res;
@@ -35,12 +34,11 @@ const factorial =(a)=>
 }
 const root=(a,pow) =>
 {
-
+  return a** (pow ** -1);
 }
 const absolute = (a) =>
 {
-  if(a<0)a*=-1;
-  return a;
+  return a>0 ? a : -a;
 }
 const mod =(a,b) =>
 {
@@ -58,7 +56,7 @@ const log =(a,base) =>
 }
 const flipsign =(a)=>
 {
-  return a*(-1);
+  return -a;
 }
 const percent=(a,b)=>
 {
@@ -67,11 +65,10 @@ const percent=(a,b)=>
 
 const sine=(a) =>
 {
-  let pi=3.1415926535;
   const b = a%=360;
-  let rad =b * pi/180;
+  let rad =b * Math.PI/180;
   let sin=0.0;
-  for(i=0;i<1000;++i)
+  for(i=0;i<10;++i)
   {
     let top=power(-1,i) * power(rad, 2*i + 1);
     let bottom=factorial(2 * i +1);
@@ -81,12 +78,19 @@ const sine=(a) =>
 }
 const cosine=(a) =>
 {
-  let pi=3.14159265359;
   a%=360;
-  let rad =a * pi/180;
+  let rad =a * Math.PI/180;
   let cos=0.0;
-  for(i=0;i<7;++i)
+  for(i=0;i<10;++i)
     cos += power(-1,i) * power(rad, 2*i) / factorial(2 * i);
   return cos;
 }
-console.log(cosine(30));
+const integral=(func,a,b,precision)=>{
+  let sum=0;
+  for(let i=a;i<b;i+=precision)
+  {
+    sum+=func(i)*precision;
+  }
+  return sum;
+}
+console.log(cosine(60));
