@@ -94,12 +94,19 @@ const integral=(func,a,b,precision)=>{
   return sum;
 }
 const textField = document.getElementById("expression-field");
-const buttons = document.querySelectorAll('.button-group button');
-buttons.forEach(currentButton=>{
+const buttons =
+  document.querySelectorAll('.button-group button:not(.long-button)');
+const equalsButton = document.getElementById("equals");
+buttons.forEach(currentButton => {
   currentButton.addEventListener('click', event => {
-    if(textField.value==='0')
-    textField.value=currentButton.innerText;
-    else
-    textField.value+=currentButton.innerText;
-}
-});
+    if (textField.value === '0') {
+      textField.value = currentButton.innerText;
+    } else {
+      textField.value += currentButton.innerText;
+    }
+  })
+})
+
+equalsButton.addEventListener('click', event => {
+  textField.value = calculateResult(textField.value);
+})  
